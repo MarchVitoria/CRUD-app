@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule</title>
+</head>
+<body>
+    <h3>Novo agendamento:</h3>
+
+    <form action="{% url 'create' %}" method="POST">
+        {% csrf_token %}
+        
+        Professor(a):
+        <input type="text" name="teacher" value="{{ schedule.teacher }}">
+        Dia:
+        <input type="text" name="class_date" value="{{ schedule.class_date }}">
+        Horário:
+        <input type="text" name="class_time" value="{{ schedule.class_time }}">
+        Aluno(a):
+        <input type="text" name="student" value="{{ schedule.student }}">
+        Disciplina:
+        <input type="text" name="subject" value="{{ schedule.subject }}">
+
+        <button type="submit">Salvar</button>
+    </form>
+    <div>
+        <h2>Agendados:</h2>
+    </div>
+
+    <table>
+        <tr>
+            <td>Professor(a)</td>
+            <td>Dia</td>
+            <td>Horário</td>
+            <td>Aluno</td>
+            <td>Disciplina</td>
+            <td>Opções</td>
+        </tr>
+        <tr>
+            {% for schedule in schedules %}
+                <td>{{ schedule.teacher }}</td>
+                <td>{{ schedule.class_date }}</td>
+                <td>{{ schedule.class_time }}</td>
+                <td>{{ schedule.student }}</td>
+                <td>{{ schedule.subject }}</td>
+                <td><a href="{% url 'detail' schedule.id %}">Alterar</a></td>
+                <td><a href="{% url 'delete' schedule.id %}">Excluir</a></td>
+            {% endfor %}
+        </tr>
+    </table>
+    
+</body>
+</html>
