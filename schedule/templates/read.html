@@ -1,14 +1,18 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
     <title>Schedule</title>
 </head>
-<body>
-    <h3>Novo agendamento:</h3>
 
-    <form action="{% url 'create' %}" method="POST">
+<body>
+    <div class="subtitle">Novo agendamento:</div>
+
+    <form action="{% url 'create' %}" method="POST" class="input-fields">
         {% csrf_token %}
         
         Professor(a):
@@ -28,14 +32,16 @@
         <h2>Agendados:</h2>
     </div>
 
-    <table>
+    <table class="table">
         <tr>
-            <td>Professor(a)</td>
-            <td>Dia</td>
-            <td>Horário</td>
-            <td>Aluno</td>
-            <td>Disciplina</td>
-            <td>Opções</td>
+            <div class="table-title">
+                <td>Professor(a)</td>
+                <td>Dia</td>
+                <td>Horário</td>
+                <td>Aluno</td>
+                <td>Disciplina</td>
+                <td>Opções</td>
+            </div>
         </tr>
         <tr>
             {% for schedule in schedules %}

@@ -1,0 +1,38 @@
+/* CSS for class schedule project */
+
+body {
+    padding: 50px 90px 20px 50px;
+}
+
+
+.subtitle {
+    font-size: large;
+    font-weight: bold;
+    padding-bottom: 13px;
+}
+
+.input-fields {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 30px;
+}
+
+.table {
+    border: 2px solid black;
+    border-radius: 30px;
+    padding: 13px;
+}
+
+.table-title {
+    font-size: large;
+    font-weight: bold;
+    padding-bottom: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+td {
+    padding-bottom: 10px;
+}
