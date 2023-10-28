@@ -10,9 +10,9 @@
 </head>
 
 <body>
-    <div class="subtitle">Novo agendamento:</div>
-
-    <form action="{% url 'create' %}" method="POST" class="input-fields">
+    
+    <form id="content" action="{% url 'create' %}" method="POST" class="input-fields">
+        <div class="subtitle">Novo agendamento:</div>
         {% csrf_token %}
         
         Professor(a):
@@ -26,35 +26,39 @@
         Disciplina:
         <input type="text" name="subject" value="{{ schedule.subject }}">
 
-        <button type="submit">Salvar</button>
+        <button type="submit" id="save-button">Salvar</button>
     </form>
-    <div>
+    <div id="content2">
         <h2>Agendados:</h2>
-    </div>
-
-    <table class="table">
-        <tr>
-            <div class="table-title">
+    
+        <table>
+            <tr id="label">
                 <td>Professor(a)</td>
                 <td>Dia</td>
                 <td>Horário</td>
                 <td>Aluno</td>
                 <td>Disciplina</td>
                 <td>Opções</td>
-            </div>
-        </tr>
-        <tr>
+            </tr>
             {% for schedule in schedules %}
-                <td>{{ schedule.teacher }}</td>
-                <td>{{ schedule.class_date }}</td>
-                <td>{{ schedule.class_time }}</td>
-                <td>{{ schedule.student }}</td>
-                <td>{{ schedule.subject }}</td>
-                <td><a href="{% url 'detail' schedule.id %}">Alterar</a></td>
-                <td><a href="{% url 'delete' schedule.id %}">Excluir</a></td>
+                <tr>
+                    <td>{{ schedule.teacher }}</td>
+                    <td>{{ schedule.class_date }}</td>
+                    <td>{{ schedule.class_time }}</td>
+                    <td>{{ schedule.student }}</td>
+                    <td>{{ schedule.subject }}</td>
+                    <td>
+                        <a href="{% url 'detail' schedule.id %}">
+                            <img src="{% static 'icons/edit.svg' %}">
+                        </a>
+                        <a href="{% url 'delete' schedule.id %}">
+                            <img src="{% static 'icons/trash3.svg' %}">
+                        </a>
+                    </td>
+                </tr>
             {% endfor %}
-        </tr>
-    </table>
+        </table>
+    </div>
     
 </body>
 </html>
