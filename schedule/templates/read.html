@@ -1,7 +1,7 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 
 <head>
     <meta charset="UTF-8">
@@ -9,30 +9,45 @@
     <title>Schedule</title>
 </head>
 
-<body>
-    
-    <form id="content" action="{% url 'create' %}" method="POST" class="input-fields">
-        <div class="subtitle">Novo agendamento:</div>
-        {% csrf_token %}
-        
-        Professor(a):
-        <input type="text" name="teacher" value="{{ schedule.teacher }}">
-        Dia:
-        <input type="text" name="class_date" value="{{ schedule.class_date }}">
-        Horário:
-        <input type="text" name="class_time" value="{{ schedule.class_time }}">
-        Aluno(a):
-        <input type="text" name="student" value="{{ schedule.student }}">
-        Disciplina:
-        <input type="text" name="subject" value="{{ schedule.subject }}">
+<div class="page-title">
+    <h1>NOME DA ESCOLA</h1>
+</div>
 
-        <button type="submit" id="save-button">Salvar</button>
+<body class="body-content">
+    <form class="left-content" action="{% url 'create' %}" method="POST">
+        <div class="title-left">Novo agendamento:</div>
+        {% csrf_token %}
+            <div class="input-fields">
+                Professor(a):
+                <input type="text" name="teacher" value="{{ schedule.teacher }}">
+                Dia:
+                <input type="text" name="class_date" value="{{ schedule.class_date }}">
+                Horário:
+                <input type="text" name="class_time" value="{{ schedule.class_time }}">
+                Aluno(a):
+                <input type="text" name="student" value="{{ schedule.student }}">
+                Disciplina:
+                <input type="text" name="subject" value="{{ schedule.subject }}">
+            </div>
+            <div class="save-button">
+                <button type="submit">Salvar</button>
+            </div>
+        </div>
     </form>
-    <div id="content2">
+
+    <div class="right-content">    
         <h2>Agendados:</h2>
+
+        <div class="filter">
+            Filtrar por:
+            <input type="text" name="teacher" placeholder="Professor(a)">
+            <input type="text" name="class_date" placeholder="Dia">
+            <input type="text" name="student" placeholder="Aluno(a)">
+            <input type="text" name="subject" placeholder="Disciplina">
+        </div>
     
-        <table>
-            <tr id="label">
+        <table class="table-content">
+            <tr class="table-label">
                 <td>Professor(a)</td>
                 <td>Dia</td>
                 <td>Horário</td>
@@ -41,7 +56,7 @@
                 <td>Opções</td>
             </tr>
             {% for schedule in schedules %}
-                <tr>
+                <tr class="row-content">
                     <td>{{ schedule.teacher }}</td>
                     <td>{{ schedule.class_date }}</td>
                     <td>{{ schedule.class_time }}</td>
@@ -49,16 +64,15 @@
                     <td>{{ schedule.subject }}</td>
                     <td>
                         <a href="{% url 'detail' schedule.id %}">
-                            <img src="{% static 'icons/edit.svg' %}">
+                            <img src="{% static 'icons/lapis.png' %}">
                         </a>
                         <a href="{% url 'delete' schedule.id %}">
-                            <img src="{% static 'icons/trash3.svg' %}">
+                            <img src="{% static 'icons/excluir.png' %}">
                         </a>
                     </td>
                 </tr>
             {% endfor %}
         </table>
-    </div>
-    
+    </div> 
 </body>
 </html>

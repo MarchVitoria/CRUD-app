@@ -1,92 +1,144 @@
 /* CSS for class schedule project */
 
-body {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    padding: 50px 90px 20px 50px;
-    display: flex;
-    gap: 5%;
-    background-color: #a0b96d;
+* {
+    margin: 0;
+    padding: 0;
 }
 
-
-.subtitle {
-    font-size: large;
+.page-title {
+    background-color: #AD3737;
+    display: flex;
     font-weight: bold;
-    padding-bottom: 13px;
+    justify-content: center;
+    padding: 2%;
+}
+
+.body-content {
+    background-color: #1E2019;
+}
+
+.left-content {
+    display: block;
+    float: left;
+    width: 20%;
+    height: 100%;
+}
+
+.title-left {
+    font-size: x-large;
+    font-weight: bold;
+    background-color: #394032;
+    color: #d48d4e;
+    padding: 8% 2%;
+    text-align: center;
 }
 
 .input-fields {
-    display: inline-grid;
-    justify-content: space-between;
-    padding-bottom: 30px;
-}
-
-#content {
+    background-color: #E7822B;
     display: grid;
-}
-
-#content2 {
-    display: block;
-}
-
-#save-button {
-    background-color: #66424c;
-    border: none;
-    border-radius: 10px;
-    color: white;
-    font-weight: bold;
-    height: 90%;
-    width: 103%;
-    margin-top: 20px;
-}
-
-#label {
+    padding: 7%;
+    max-width: 100%;
     font-size: larger;
-    font-weight: bold;
-    border-bottom: 1px solid black;
 }
 
+.input-fields input {
+    margin-top: 1%;
+    margin-bottom: 3%;
+    background-color: #fcb96d;
+    border: none;
+    border-radius: 37px;
+    padding: 2% 5%;
+    font-size: large;
+}
 
-table {
-    width: 90%;
-    border-radius: 30px;
-    border: 2px solid black;
+.save-button {
+    background-color: #E7822B;
+    color: antiquewhite;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding-bottom: 2%;
+}
+
+.save-button button {
+    background-color: #394032;
+    color: #fcb96d;
+    border: none;
+    border-radius: 50px;
+    font-size: large;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+    margin-bottom: 100%;
+    padding: 2%;
+}
+
+.right-content {
+    background-color: #1E2019;
+    color: #E7822B;
+    float: right;
+    width: 80%;
+    height: 100%;
+}
+
+h2 {
+    padding: 2%;
+    border-bottom: 1px solid #fcb96d;
+}
+
+.filter {
+    padding: 2%;
+    font-size: large;
+    gap: 2%;
+}
+
+.filter input {
+    background-color: #fcb96d;
+    border: none;
+    border-radius: 37px;
+    padding: 0.5% 1.5%;
+    font-size: large;
+}
+
+.table-content {
+    background-color: #394032;
     display: inline-table;
     table-layout: fixed;
-    padding-left: 20px;
-    padding-right: 20px;
+    width: 80%;
+    border: none;
+    border-radius: 30px;
+    margin: 2% 5% 5% 6.5%;
+    padding: 2%;
 }
 
-table td {
-    padding-top: 13px;
+.table-label {
+    background-color: #394032;
+    color:  #e53935;
+    font-size: larger;
+    font-weight: bold;
+    padding: 1%;
     text-align: center;
-    row-gap: 20px;
-    padding-left: 0px;
-    padding-bottom: 10px;
+    margin-bottom: 1%;
+}
+
+.row-content {
+    background-color: #394032;
+    color: #fcb96d;
+    font-size: larger;
+    padding: 1%;
+    text-align: center;
+}
+
+td {
+    padding: 2%;
+}
+
+td a {
     text-decoration: none;
 }
 
-table th {
-    border-bottom: 1px solid rgb(207, 207, 207);
-    padding-left: 30px;
-    padding-top: 13px;
-    padding-bottom: 15px;
-    text-align: left;
-}
-
-input {
-    border-radius: 7px;
-    border: 1px solid #c72546;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    margin: 10px;
-    background-color: #d5ca98;
-    padding: 3%;
-}
-
-.color1 { 
-    color: #c72546 ;
-    color:#66424c ;
-    color:#768a4f ;
-    color:#454b21 ;
-    color:#d5ca98 ;
+td img {
+    width: 35px;
+    height: 35px;
 }

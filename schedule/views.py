@@ -9,10 +9,17 @@ def create(request):
     class_time = request.POST.get('class_time')
     student = request.POST.get('student')
 
-    try:  
-        Schedule.objects.create(teacher=teacher, subject=subject, class_date=class_date, class_time=class_time, student=student)
+    try:
+        print("ANTES")  
+        new = Schedule.objects.create(teacher=teacher, subject=subject, class_date=class_date, class_time=class_time, student=student)
+        print("DEPOIS", new.name)  
+        
+        if new is not None:
+            print("Agendamento realizado com sucesso.")
+        else:
+            print("Confira os dados e tente novamente.")
     except:
-        print("Confira os dados e tente novamente.")
+        print("Erro ao realizar agendamento.")
     
     schedules = Schedule.objects.all()
     return render(request, 'read.html', {'schedules': schedules})
