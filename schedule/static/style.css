@@ -3,6 +3,7 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: sans-serif;
 }
 
 .page-title {
@@ -21,7 +22,7 @@
     display: block;
     float: left;
     width: 20%;
-    height: 100%;
+    margin-bottom: auto;
 }
 
 .title-left {
@@ -56,8 +57,9 @@
     color: antiquewhite;
     display: flex;
     justify-content: center;
+    /* padding-bottom: 2%; */
     width: 100%;
-    padding-bottom: 2%;
+    padding-bottom: 100%;
 }
 
 .save-button button {
@@ -70,7 +72,6 @@
     align-items: center;
     justify-content: center;
     width: 30%;
-    margin-bottom: 100%;
     padding: 2%;
 }
 
@@ -79,26 +80,29 @@
     color: #E7822B;
     float: right;
     width: 80%;
-    height: 100%;
+    margin-bottom: auto;
 }
 
 h2 {
     padding: 2%;
-    border-bottom: 1px solid #fcb96d;
+    border-bottom: 1px solid #f0b879;
 }
 
 .filter {
     padding: 2%;
     font-size: large;
     gap: 2%;
+    margin-left: 6%;
 }
 
 .filter input {
     background-color: #fcb96d;
     border: none;
     border-radius: 37px;
-    padding: 0.5% 1.5%;
-    font-size: large;
+    padding: 0.3% 1%;
+    font-size: medium;
+    margin-left: 0.7%;
+    width: 30%;
 }
 
 .table-content {
@@ -141,4 +145,145 @@ td a {
 td img {
     width: 35px;
     height: 35px;
+}
+
+/* EDIT CONTENT */
+.edit-content {
+    display: block;
+}
+
+.title-edit {
+    font-size: x-large;
+    font-weight: bold;
+    background-color: #394032;
+    color: #d48d4e;
+    padding: 2% 2%;
+    text-align: center;
+}
+
+.edit-fields {
+    background-color: #E7822B;
+    display: grid;
+    padding: 3% 23% 1% 23%;
+    max-width: 100%;
+    font-size: larger;
+}
+
+.edit-fields input {
+    margin-top: 1%;
+    margin-bottom: 3%;
+    background-color: #fcb96d;
+    border: none;
+    border-radius: 37px;
+    padding: 1% 3%;
+    font-size: large;
+}
+
+.edit-save-button {
+    background-color: #E7822B;
+    color: antiquewhite;
+    display: flex;
+    justify-content: center;
+    gap: 3%;
+}
+
+.edit-save-button button, .edit-save-button a {
+    background-color: #394032;
+    color: #fcb96d;
+    border: none;
+    border-radius: 50px;
+    font-size: larger;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 7%;
+    height: 3%;
+    margin-bottom: 6%;
+    padding: 0.7%;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+
+/* RESPONSIVITY */
+@media (max-width: 1562px) {
+    .body-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .page-title {
+        width: 100%;
+        padding: 3% 0;
+    }
+
+    .title-left {
+        padding: 2% 2%;
+        cursor: pointer;
+    }
+
+    .left-content {
+        display: block;
+        width: 100%;
+    }
+
+    .input-fields {
+        /* padding: 1% 20%; */
+        display: none;
+    }
+
+    .input-fields input {
+        max-width: 100%;
+    }
+
+    .right-content {
+        width: 100%;
+    }
+
+    .filter {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .filter input {
+        width: 50%;
+        margin: 1%;
+    }
+
+    .table-content {
+        width: 100%;
+        margin: 2% 0.7% 5% 0.5%;
+    }
+
+    .save-button {
+        padding-bottom: 3%;
+    }
+
+    .save-button button {
+        width: 10%;
+        padding: 0.7%;
+    }
+
+    .edit-content {
+        width: 100%;
+    }
+
+    .edit-fields {
+        padding: 5% 15%;
+    }
+    
+    .edit-save-button {
+        padding-bottom: 100%;
+    }
+
+    .edit-save-button button, .edit-save-button a {
+        width: auto;
+        font-size: auto;
+    }
+
+    h2 {
+        padding-top: 7%;
+    }
 }
