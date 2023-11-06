@@ -31,6 +31,13 @@
             <div class="save-button">
                 <button type="submit">Salvar</button>
             </div>
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
         </div>
     </form>
 
@@ -70,6 +77,6 @@
             {% endfor %}
         </table>
     </div> 
-    <script src="static/script.js"></script>
+    <script src={% static 'script.js' %}></script>
 </body>
 </html>

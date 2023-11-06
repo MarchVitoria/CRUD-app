@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
             titleLeft.addEventListener('click', toggleInputFields);
         } else {
             titleLeft.removeEventListener('click', toggleInputFields);
-            inputFields.style.display = 'grid'; // Garante que o campo seja exibido para telas maiores que 1560px
+            inputFields.style.display = 'grid';
         }
     };
 
@@ -34,5 +34,5 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     mediaQuery.addEventListener('change', handleMediaQueryChange);
-    handleMediaQueryChange(mediaQuery); // Verifica o estado da media query ao carregar a página
+    handleMediaQueryChange(mediaQuery); 
 });

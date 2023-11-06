@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
 from schedule.models import Schedule
+from django.contrib import messages
+
 
 
 def create(request):
@@ -8,19 +10,30 @@ def create(request):
     class_date = request.POST.get('class_date')
     class_time = request.POST.get('class_time')
     student = request.POST.get('student')
-
-    try:
-        print("ANTES")  
-        new = Schedule.objects.create(teacher=teacher, subject=subject, class_date=class_date, class_time=class_time, student=student)
-        print("DEPOIS", new.name)  
-        
-        if new is not None:
-            print("Agendamento realizado com sucesso.")
-        else:
-            print("Confira os dados e tente novamente.")
-    except:
-        print("Erro ao realizar agendamento.")
     
+    if not all([teacher, subject, class_date, class_time, student]):
+        messages.error(request, 'Por favor, preencha todos os campos.')
+
+    elif Schedule.objects.filter(teacher=teacher, class_date=class_date, class_time=class_time).exists():
+        messages.error(request, f'Já existe um agendamento para esta data e horário com o/a professor/a {teacher}.')
+
+    elif Schedule.objects.filter(student=student, class_date=class_date, class_time=class_time).exists():
+        messages.error(request, f'Já existe um agendamento para esta data e horário para o/a aluno/a {student}.')
+    
+    else:
+        try:
+            new_schedule = Schedule.objects.create(
+                teacher=teacher,
+                subject=subject,
+                class_date=class_date,
+                class_time=class_time,
+                student=student
+            )
+            messages.success(request, 'Agendamento realizado com sucesso.')
+
+        except Exception as e:
+            messages.error(request, f'Erro ao realizar agendamento: {e}')
+
     schedules = Schedule.objects.all()
     return render(request, 'read.html', {'schedules': schedules})
 
