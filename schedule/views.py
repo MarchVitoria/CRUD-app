@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from schedule.models import Schedule
 from django.contrib import messages
 
-
+  
 
 def create(request):
     teacher = request.POST.get('teacher')
